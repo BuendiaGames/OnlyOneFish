@@ -1,2 +1,2 @@
 # OnlyOneFish
-A game for the GMTK Jam 2019.
+An amazing game for the GMTK Jam 2019.
