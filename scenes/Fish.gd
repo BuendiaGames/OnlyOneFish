@@ -94,9 +94,7 @@ func switch_direction():
 	direction=-direction
 	# we can flip the node, so as the collider also changes its position, by scaling negative:
 	scale=Vector2(direction.x,1)
-	print("Switching direction...")
 
 # When our fish gets out of the screen, it dies...
 func _on_VisibilityNotifier2D_screen_exited():
-	print("Pez fuera!")
 	queue_free()
