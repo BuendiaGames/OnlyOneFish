@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/media/graphics/pezvela/pezvela_spritesheet.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 9.83369
+radius = 14.5205
 
 [sub_resource type="Animation" id=2]
 resource_name = "swimming"
@@ -36,7 +36,7 @@ hframes = 6
 frame = 6
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 43.61, 5.26 )
+position = Vector2( 67.26, 4.72 )
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" parent="." index="2"]
