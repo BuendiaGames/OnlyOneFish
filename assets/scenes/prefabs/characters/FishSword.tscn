@@ -1,10 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/media/graphics/pezvela_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/media/graphics/pezvela/pezvela_spritesheet.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 17.3028
+radius = 9.83369
+
+[sub_resource type="Animation" id=2]
+resource_name = "swimming"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 7, 5, 4, 3, 2, 1, 0 ]
+}
 
 [node name="FishSword" instance=ExtResource( 1 )]
 speed = 50.0
@@ -14,11 +31,18 @@ is_the_fish = true
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
 flip_h = true
+vframes = 2
+hframes = 6
+frame = 8
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 68.77, 5.26 )
+position = Vector2( 43.61, 5.26 )
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" parent="." index="2"]
 position = Vector2( 0.451649, -4.62814 )
 scale = Vector2( 27.7302, 4.82214 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+autoplay = "swimming"
+anims/swimming = SubResource( 2 )

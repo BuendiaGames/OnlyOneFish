@@ -4,9 +4,6 @@
 [ext_resource path="res://assets/scenes/prefabs/objects/BackgroundTile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/media/graphics/fondosup.png" type="Texture" id=3]
 
-
-
-
 [node name="Background" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -14,7 +11,6 @@ script = ExtResource( 1 )
 visible = false
 self_modulate = Color( 0.396078, 0.396078, 0.396078, 1 )
 position = Vector2( 0, 163 )
-depth = 1
 
 [node name="Surface" type="Sprite" parent="."]
 position = Vector2( -0.109375, 3.36331 )

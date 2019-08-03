@@ -37,6 +37,10 @@ func is_this_fish_the_fish():
 
 # Initialize fish properties
 func init(fish_type):
+	var cols=$Sprite.vframes
+	
+	if cols ==0:
+		cols=1
 	
 	match fish_type:
 		"Cualquiera":
@@ -44,7 +48,7 @@ func init(fish_type):
 			speed_range = 30.0
 			acceleration = 20.0
 			is_the_fish = false
-			fish_length = $Sprite.texture.get_size().x
+			fish_length = $Sprite.texture.get_size().x / cols
 			# FIXME It is necessary to adjust the collision shape size
 			# FIXME It is necessary to change the sprite to the type of fish
 			# FIXME Here we distinguish the different types of fishes on an if/else
