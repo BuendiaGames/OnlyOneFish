@@ -10,6 +10,7 @@ var vel = 30
 var maxvel = 70
 var acel = 25
 var Scmanager = null
+var time = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,10 +25,13 @@ func _process(delta):
 		self.position.y -= vel*delta
 	vel = min(vel+acel*delta, maxvel)
 	e_pressed()
+	if (pescado):
+		time += delta
+		if (time >= 4 and win): # FIXME esto debe ir a la pantalla final segun si ganas o no
+			Scmanager.goto_scene("res://scenes/MainTitle.tscn")
+		elif (time >= 4 and !win): # FIXME esto debe ir a la pantalla final segun si ganas o no
+			Scmanager.goto_scene("res://scenes/MainTitle.tscn")
 	pass
-	
-	
-	
 
 func e_pressed():
 	if (Input.is_action_just_pressed("ui_accept") and !pescado):
