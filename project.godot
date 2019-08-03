@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="GMTK2019"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/MainTitle.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SceneManager="*res://SceneManager.gd"
 
 [display]
 

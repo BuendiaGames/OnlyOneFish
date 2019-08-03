@@ -53,10 +53,10 @@ func _process(delta):
 	self.position += (speed+sin(time)*acceleration)*direction*delta 
 	
 	# Make fishes come back to the screen
-	if (self.position.x <= -150): # FIXME Adjust to the fish and screen size
+	if (self.position.x <= -200):
 		direction = Vector2(1.0, 0.0)
 		$Sprite.set_flip_h(true)
-	elif (self.position.x >= 1250): # FIXME Adjust to the fish and screen size
+	elif (self.position.x >= 800): 
 		$Sprite.set_flip_h(false)
 		direction = Vector2(-1.0, 0.0)
 	pass
