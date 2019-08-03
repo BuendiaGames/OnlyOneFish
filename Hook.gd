@@ -9,9 +9,11 @@ var win = false
 var vel = 30
 var maxvel = 70
 var acel = 25
+var Scmanager = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Scmanager = get_node("/root/SceneManager")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,6 +40,7 @@ func _on_Hook_area_entered(area):
 	pescado = true
 	vel = 50.0
 	acel = 0.0
+	$AnimationPlayer.play("FadeOUt")
 	
 	if (pez.is_this_fish_the_fish()):
 		win = true

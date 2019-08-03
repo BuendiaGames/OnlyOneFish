@@ -1,9 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Hook.gd" type="Script" id=1]
 [ext_resource path="res://graphics/label_HP_bg.png" type="Texture" id=2]
+[ext_resource path="res://graphics/rectangulonegro.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeOUt"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Hook" type="Area2D"]
 script = ExtResource( 1 )
@@ -15,4 +32,13 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 74.9155, 29.4905 )
 texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeOUt = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 613.008, 16542.1 )
+scale = Vector2( 10.379, 57.5142 )
+texture = ExtResource( 3 )
 [connection signal="area_entered" from="." to="." method="_on_Hook_area_entered"]
