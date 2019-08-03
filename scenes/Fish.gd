@@ -17,11 +17,11 @@ func setspeed():
 	pass
 	
 func setdirection():
-	var randomnumber = randf()
-	if (randomnumber <= 0.5):
-		direction = Vector2(1.0,0.0)
+	if(self.position.x < 0):
+		direction = Vector2(1.0, 0.0)
 	else:
 		direction = Vector2(-1.0, 0.0)
+	
 	pass
 	
 # Checks if the fish you have is The Fish
@@ -59,10 +59,10 @@ func _process(delta):
 	self.position += (speed+sin(time)*acceleration)*direction*delta 
 	
 	# Make fishes come back to the screen
-	if (self.position.x <= -200):
+	if (self.position.x <= -400):
 		direction = Vector2(1.0, 0.0)
 		$Sprite.set_flip_h(true)
-	elif (self.position.x >= 800): 
+	elif (self.position.x >= 400): 
 		$Sprite.set_flip_h(false)
 		direction = Vector2(-1.0, 0.0)
 	pass
