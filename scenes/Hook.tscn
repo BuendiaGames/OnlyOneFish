@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Hook.gd" type="Script" id=1]
-[ext_resource path="res://graphics/anzuelo_2.png" type="Texture" id=2]
-[ext_resource path="res://graphics/anzuelo_1.png" type="Texture" id=3]
+[ext_resource path="res://graphics/anzuelo2.png" type="Texture" id=2]
+[ext_resource path="res://graphics/anzuelo1.png" type="Texture" id=3]
 [ext_resource path="res://graphics/rectangulonegro.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.22459, 14.1215 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "mov"
 length = 0.4
 loop = true
@@ -22,11 +22,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ) ]
+"values": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "FadeOUt"
+[sub_resource type="Animation" id=3]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/Sprite:modulate")
@@ -48,18 +47,19 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -250 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Sprite"]
 autoplay = "mov"
-anims/mov = SubResource( 3 )
+anims/mov = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/FadeOUt = SubResource( 2 )
+anims/FadeOUt = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="AnimationPlayer"]
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 3636.02, 21022.4 )
+position = Vector2( 3627.86, 20950.3 )
 scale = Vector2( 20.4666, 71.9251 )
 texture = ExtResource( 4 )
 [connection signal="area_entered" from="." to="." method="_on_Hook_area_entered"]
