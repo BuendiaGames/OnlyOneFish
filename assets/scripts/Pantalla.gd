@@ -49,7 +49,7 @@ func recalculate_accumulative_probabilities():
 
 func newfish_by_depth(depth_level):
 	
-	print("Depth: "+str(depth_level))
+	#print("Depth: "+str(depth_level))
 	
 	if depth_level>probabilities_vs_depth.size():
 		depth_level=probabilities_vs_depth.size()-1
@@ -59,7 +59,7 @@ func newfish_by_depth(depth_level):
 	var numrand = randf()
 	var found=false
 	for j in range(species.size()):
-			print("-> "+str(dict[species[j]]))
+			#print("-> "+str(dict[species[j]]))
 			if numrand<=dict[species[j]] && !found:
 				newfish(species[j])
 				found=true

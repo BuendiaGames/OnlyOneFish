@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/wonScene.gd" type="Script" id=1]
+[ext_resource path="res://graphics/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 31
+font_data = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 385.058
+margin_top = 57.3999
+margin_right = 462.058
+margin_bottom = 76.3999
+custom_fonts/font = SubResource( 1 )
+text = "You won!"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 36.6254
+margin_top = 173.463
+margin_right = 506.625
+margin_bottom = 365.463
+custom_fonts/font = SubResource( 1 )
+text = "Game made by:
+- Programmers: VictorSeven, 
+Mapachana;,Juanjo
+- Art : Pedro, Elenoide
+- Music: VictorSeven"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 358.611
+margin_top = 456.64
+margin_right = 524.611
+margin_bottom = 499.64
+text = "Try again"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
