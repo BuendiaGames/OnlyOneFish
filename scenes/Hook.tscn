@@ -38,7 +38,7 @@ anims/FadeOUt = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="AnimationPlayer"]
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 613.008, 16542.1 )
-scale = Vector2( 10.379, 57.5142 )
+position = Vector2( 3735.37, 20961.4 )
+scale = Vector2( 20.4666, 71.9251 )
 texture = ExtResource( 3 )
 [connection signal="area_entered" from="." to="." method="_on_Hook_area_entered"]
