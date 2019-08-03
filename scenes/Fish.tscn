@@ -4,6 +4,7 @@
 [ext_resource path="res://graphics/label_HP_bg.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 54.0977, 22.1835 )
 
 [node name="Fish" type="Area2D"]
 script = ExtResource( 1 )
@@ -13,3 +14,8 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.583979, -0.583973 )
+scale = Vector2( 5.99301, 2.60594 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

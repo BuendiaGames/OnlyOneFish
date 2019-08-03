@@ -66,3 +66,8 @@ func _process(delta):
 		$Sprite.set_flip_h(false)
 		direction = Vector2(-1.0, 0.0)
 	pass
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	print("Pez fuera!")
+	queue_free()
