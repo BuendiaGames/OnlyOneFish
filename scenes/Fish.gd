@@ -8,6 +8,7 @@ var time = 0.0
 var min_speed = 30.0
 var speed_range = 30.0
 var acceleration = 20.0
+var is_the_fish = false
 
 
 func setspeed():
@@ -22,6 +23,10 @@ func setdirection():
 	else:
 		direction = Vector2(-1.0, 0.0)
 	pass
+	
+# Checks if the fish you have is The Fish
+func is_this_fish_the_fish():
+	return is_the_fish
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -33,6 +38,7 @@ func init(fish_type):
 		min_speed = 30.0
 		speed_range = 30.0
 		acceleration = 20.0
+		is_the_fish = false
 		# FIXME It is necessary to adjust the collision shape size
 		# FIXME It is necessary to change the sprite to the type of fish
 		# FIXME Here we distinguish the different types of fishes on an if/else
