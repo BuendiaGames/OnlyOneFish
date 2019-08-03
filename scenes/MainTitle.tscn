@@ -23,5 +23,4 @@ margin_right = 533.994
 margin_bottom = 266.181
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "A game by: VictorSeven, Juanjo, Elenoide, Pedro and Mapachana"
-percent_visible = -0.0188679
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]

@@ -16,10 +16,8 @@ func _ready():
 	randomize()
 	fish_scene = preload("res://scenes/Fish.tscn")
 	pass
-	#$AnimationPlayer.play("scroll")
 
 func newfish(type_fish):
-	# var fish = fish_scene.instance()
 	var fish = get_fish_instance(type_fish)
 	
 	var randposition = randf()
@@ -32,15 +30,9 @@ func newfish(type_fish):
 	
 	pass
 	
-	
+	# Obtain an insance of a fish
 func get_fish_instance(type_fish):
 	var instance=fish_scenes[type_fish].instance()
-	
-#	match type_fish:
-#		"Cualquiera":
-#			instance=fish_scene.instance()
-#		"SwordFish":
-#			instance=sword_fish_scene
 	return instance
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
