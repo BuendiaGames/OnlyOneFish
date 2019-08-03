@@ -3,8 +3,6 @@
 [ext_resource path="res://assets/scenes/prefabs/objects/BackgroundTile.gd" type="Script" id=1]
 [ext_resource path="res://assets/media/graphics/fondoa.png" type="Texture" id=2]
 
-
-
 [node name="BackgroundTile" type="Node2D"]
 script = ExtResource( 1 )
 
