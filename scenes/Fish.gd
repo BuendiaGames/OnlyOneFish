@@ -79,7 +79,7 @@ func _process(delta):
 		switch_direction()
 	pass
 
-func caught():
+func caught(pos):
 	if (!fished):
 		if (direction.x < 0):
 			self.rotate(PI/2)
@@ -89,6 +89,7 @@ func caught():
 	speed = 50.0
 	acceleration = 0.0
 	direction = Vector2(0.0, -1.0)
+	self.position.x = pos
 	pass
 
 

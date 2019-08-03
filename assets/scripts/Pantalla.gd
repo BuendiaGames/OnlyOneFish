@@ -66,7 +66,7 @@ func _process(delta):
 		pass
 		time=0
 		if depths[depth_index]<$Hook.position.y:
-			print("--------> siguiente nivel ")
+		#	print("--------> siguiente nivel ")
 			depth_index=depth_index+1
 			
-		print($Hook.position.y)
+		#print($Hook.position.y)

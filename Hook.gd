@@ -15,6 +15,7 @@ var time = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Scmanager = get_node("/root/SceneManager")
+	$Sprite/AnimationPlayer2.play("mov")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,7 +25,9 @@ func _process(delta):
 	elif (pescado):
 		self.position.y -= vel*delta
 	vel = min(vel+acel*delta, maxvel)
+	
 	e_pressed()
+	
 	if (pescado):
 		time += delta
 		if (time >= 4 and win): # FIXME esto debe ir a la pantalla final segun si ganas o no
@@ -40,7 +43,7 @@ func e_pressed():
 
 func _on_Hook_area_entered(area):
 	var pez = area
-	pez.caught()
+	pez.caught(self.position.x)
 	pescado = true
 	vel = 50.0
 	acel = 0.0
