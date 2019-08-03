@@ -11,7 +11,8 @@ var fish_scene = null
 export var fish_scenes={"Cualquiera":preload("res://scenes/Fish.tscn"),
 	"FlyerFish":preload("res://assets/scenes/prefabs/characters/FishFlyer.tscn"),
 	"SwordFish":preload("res://assets/scenes/prefabs/characters/FishSword.tscn"), 
-	"Abysal":preload("res://assets/scenes/prefabs/characters/FishAbysal.tscn")}
+	"Abysal":preload("res://assets/scenes/prefabs/characters/FishAbysal.tscn"),
+	"JellyFish":preload("res://assets/scenes/prefabs/characters/FishJelly.tscn")}
 
 var depth_index=0
 var depths=[170,1500]
@@ -54,8 +55,10 @@ func _process(delta):
 	
 	if time>=3:
 		var numrand = randf()
-		if (numrand <= 0.25):
+		if (numrand <= 0.1):
 			newfish("SwordFish")
+		elif(numrand <= 0.25):
+			newfish("JellyFish")			
 		elif(numrand <= 0.5):
 			newfish("FlyerFish")
 		elif(numrand <= 0.75):
