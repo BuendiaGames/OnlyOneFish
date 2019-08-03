@@ -16,6 +16,7 @@ export var fish_scenes={"Cualquiera":preload("res://scenes/Fish.tscn"),
 
 var depth_index=0
 var depths=[170,1500]
+var depth_length = depths.size()
 var probabilities_vs_depth=[{"FlyerFish":0.9,"SwordFish":0.05,"Abysal":0.05},
 	{"FlyerFish":0.75,"SwordFish":0.2,"Abysal":0.05}]
 
@@ -63,11 +64,10 @@ func _process(delta):
 			newfish("FlyerFish")
 		elif(numrand <= 0.75):
 			newfish("Abysal")
-		pass
+		
 		time=0
-		if depths[depth_index]<$Hook.position.y:
-			print("--------> siguiente nivel ")
-			if depths.size()<depth_index-1:
-				depth_index=depth_index+1
+		if (depth_index < depth_length and depths[depth_index] < $Hook.position.y):
+		#	print("--------> siguiente nivel ")
+			depth_index = depth_index+1
 			
-		print($Hook.position.y)
+		#print($Hook.position.y)

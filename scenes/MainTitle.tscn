@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://graphics/pantalla_inicio.jpg" type="Texture" id=1]
 [ext_resource path="res://scenes/MainTitle.gd" type="Script" id=2]
+[ext_resource path="res://graphics/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+resource_name = "Comfortaa"
+size = 33
+font_data = ExtResource( 3 )
 
 [node name="TextureRect" type="TextureRect"]
 anchor_right = 1.0
@@ -25,10 +31,11 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "A game by: VictorSeven, Juanjo, Elenoide, Pedro and Mapachana"
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 218.685
-margin_top = 68.5133
-margin_right = 404.685
-margin_bottom = 107.513
+margin_left = 43.2131
+margin_top = 39.0597
+margin_right = 568.213
+margin_bottom = 136.06
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "The only man and the sea"
 align = 1
