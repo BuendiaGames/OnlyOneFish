@@ -1,4 +1,4 @@
-extends MarginContainer
+extends TextureRect
 
 var ScManager = null
 # Declare member variables here. Examples:
@@ -15,6 +15,6 @@ func _ready():
 #	pass
 
 
-func _on_TextureButton_pressed():
-	ScManager.goto_scene("res://scenes/Main.tscn")
+func _on_Start_pressed():
+	ScManager.goto_scene("res://assets/scenes/levels/Pantalla.tscn")
 	pass # Replace with function body.

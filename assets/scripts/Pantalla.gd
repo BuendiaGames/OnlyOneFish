@@ -9,17 +9,15 @@ var depth = 0.0
 var time = 0.0
 var fish_scene = null
 
-export var fish_scenes={"Cualquiera":preload("res://scenes/Fish.tscn"), "SwordFish":preload("res://assets/scenes/prefabs/characters/FishSword.tscn")}
+export var fish_scenes={"Cualquiera":preload("res://scenes/Fish.tscn"), "SwordFish":preload("res://assets/scenes/prefabs/characters/FishSword.tscn"), "Abysal":preload("res://assets/scenes/prefabs/characters/FishAbysal.tscn")}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	fish_scene = preload("res://scenes/Fish.tscn")
 	pass
-	#$AnimationPlayer.play("scroll")
 
 func newfish(type_fish):
-	# var fish = fish_scene.instance()
 	var fish = get_fish_instance(type_fish)
 	
 	var randposition = randf()
@@ -32,15 +30,9 @@ func newfish(type_fish):
 	
 	pass
 	
-	
+	# Obtain an insance of a fish
 func get_fish_instance(type_fish):
 	var instance=fish_scenes[type_fish].instance()
-	
-#	match type_fish:
-#		"Cualquiera":
-#			instance=fish_scene.instance()
-#		"SwordFish":
-#			instance=sword_fish_scene
 	return instance
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,8 +41,11 @@ func _process(delta):
 	
 	time += delta
 	
-	if (randf() <= 0.5 and time >= 3):
-		# newfish("Cualquiera")
+	var numrand = randf()
+	if (numrand <= 0.25 and time >= 3):
 		newfish("SwordFish")
+		time = 0
+	elif(numrand <= 0.5 and time >= 3):
+		newfish("Abysal")
 		time = 0
 	pass
