@@ -4,7 +4,6 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
-var vel = 0.70
 var depth = 0.0
 var time = 0.0
 var fish_scene = null
@@ -22,9 +21,9 @@ func newfish(type_fish):
 	
 	var randposition = randf()
 	if (randposition <= 0.5):
-		fish.position = Vector2(-400, $Camera2D.position.y+250)
+		fish.position = Vector2(-400, $Hook.position.y+250)
 	else:
-		fish.position = Vector2(400, $Camera2D.position.y+250)
+		fish.position = Vector2(400, $Hook.position.y+250)
 	fish.init(type_fish)
 	add_child(fish)
 	
@@ -37,7 +36,6 @@ func get_fish_instance(type_fish):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Camera2D.position.y += vel
 	
 	time += delta
 	

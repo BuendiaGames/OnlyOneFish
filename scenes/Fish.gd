@@ -3,6 +3,7 @@ extends Area2D
 export var speed = 30.0
 var direction = Vector2(0.0, 0.0)
 var time = 0.0
+var fished = false
 
 # Fishes properties
 export var min_speed = 30.0
@@ -76,6 +77,18 @@ func _process(delta):
 		switch_direction()
 	elif (self.position.x >= OS.get_window_size().x/2+fish_length): 
 		switch_direction()
+	pass
+
+func caught():
+	if (!fished):
+		if (direction.x < 0):
+			self.rotate(PI/2)
+		else:
+			self.rotate(-PI/2)
+		fished = true
+	speed = 50.0
+	acceleration = 0.0
+	direction = Vector2(0.0, -1.0)
 	pass
 
 
