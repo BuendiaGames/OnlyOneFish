@@ -1,14 +1,15 @@
 extends Area2D
 
-var speed = 30.0
+export var speed = 30.0
 var direction = Vector2(0.0, 0.0)
 var time = 0.0
 
 # Fishes properties
-var min_speed = 30.0
-var speed_range = 30.0
-var acceleration = 20.0
-var is_the_fish = false
+export var min_speed = 30.0
+export var speed_range = 30.0
+export var is_the_fish = false
+export var acceleration = 30.0
+var fish_length=100
 
 
 func setspeed():
@@ -19,9 +20,10 @@ func setspeed():
 func setdirection():
 	if(self.position.x < 0):
 		direction = Vector2(1.0, 0.0)
+		scale=Vector2(1,1)
 	else:
 		direction = Vector2(-1.0, 0.0)
-	
+		scale=Vector2(-1,1)
 	pass
 	
 # Checks if the fish you have is The Fish
@@ -39,6 +41,7 @@ func init(fish_type):
 		speed_range = 30.0
 		acceleration = 20.0
 		is_the_fish = false
+		fish_length = $Sprite.texture.get_size().x
 		# FIXME It is necessary to adjust the collision shape size
 		# FIXME It is necessary to change the sprite to the type of fish
 		# FIXME Here we distinguish the different types of fishes on an if/else
@@ -59,15 +62,24 @@ func _process(delta):
 	self.position += (speed+sin(time)*acceleration)*direction*delta 
 	
 	# Make fishes come back to the screen
-	if (self.position.x <= -400):
-		direction = Vector2(1.0, 0.0)
-		$Sprite.set_flip_h(true)
-	elif (self.position.x >= 400): 
-		$Sprite.set_flip_h(false)
-		direction = Vector2(-1.0, 0.0)
+	if (self.position.x <= -fish_length):
+		# direction = Vector2(1.0, 0.0)
+		# $Sprite.set_flip_h(true)
+		switch_direction()
+	elif (self.position.x >= OS.get_window_size().x+fish_length): 
+		switch_direction()
+		# $Sprite.set_flip_h(false)
+		#direction = Vector2(-1.0, 0.0)
 	pass
 
 
+func switch_direction():
+	direction=-direction
+	# we can flip the node, so as the collider also changes its position, by scaling negative:
+	scale=Vector2(direction.x,1)
+	print("Switching direction...")
+
+# When our fish gets out of the screen, it dies...
 func _on_VisibilityNotifier2D_screen_exited():
 	print("Pez fuera!")
 	queue_free()
