@@ -34,7 +34,7 @@ func _process(delta):
 	pass
 
 func e_pressed():
-	if (Input.is_action_just_pressed("ui_accept") and !pescado):
+	if (Input.is_action_just_pressed("ui_accept") and self.position.y >= 0 and !pescado):
 		vel = -40.0
 	
 
