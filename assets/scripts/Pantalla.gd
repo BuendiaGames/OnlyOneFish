@@ -8,8 +8,15 @@ var depth = 0.0
 var time = 0.0
 var fish_scene = null
 
-export var fish_scenes={"Cualquiera":preload("res://scenes/Fish.tscn"), "FlyerFish":preload("res://assets/scenes/prefabs/characters/FishFlyer.tscn"), "SwordFish":preload("res://assets/scenes/prefabs/characters/FishSword.tscn"), "Abysal":preload("res://assets/scenes/prefabs/characters/FishAbysal.tscn")}
+export var fish_scenes={"Cualquiera":preload("res://scenes/Fish.tscn"),
+	"FlyerFish":preload("res://assets/scenes/prefabs/characters/FishFlyer.tscn"),
+	"SwordFish":preload("res://assets/scenes/prefabs/characters/FishSword.tscn"), 
+	"Abysal":preload("res://assets/scenes/prefabs/characters/FishAbysal.tscn")}
 
+var depth_index=0
+var depths=[170,1500]
+var probabilities_vs_depth=[{"FlyerFish":0.9,"SwordFish":0.05,"Abysal":0.05},
+	{"FlyerFish":0.75,"SwordFish":0.2,"Abysal":0.05}]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,4 +62,8 @@ func _process(delta):
 			newfish("Abysal")
 		pass
 		time=0
+		if depths[depth_index]<$Hook.position.y:
+			print("--------> siguiente nivel ")
+			depth_index=depth_index+1
+			
 		print($Hook.position.y)
