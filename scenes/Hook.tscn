@@ -5,6 +5,7 @@
 [ext_resource path="res://graphics/rectangulonegro.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 57.4734, 18.836 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "FadeOUt"
@@ -30,7 +31,7 @@ position = Vector2( 33.7714, 14.0318 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 74.9155, 29.4905 )
+position = Vector2( 35.1102, 15.5587 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -38,7 +39,7 @@ anims/FadeOUt = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="AnimationPlayer"]
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 3731.37, 20961.4 )
+position = Vector2( 3752.6, 20960.1 )
 scale = Vector2( 20.4666, 71.9251 )
 texture = ExtResource( 3 )
 [connection signal="area_entered" from="." to="." method="_on_Hook_area_entered"]
