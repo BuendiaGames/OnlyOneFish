@@ -11,6 +11,7 @@ export var is_the_fish = false
 export var acceleration = 30.0
 var fish_length=100
 
+onready var fish= load("res://assets/scenes/prefabs/characters/FishSword.tscn")
 
 func setspeed():
 	var randomnumber = randf()
@@ -36,15 +37,31 @@ func is_this_fish_the_fish():
 
 # Initialize fish properties
 func init(fish_type):
-	if (fish_type == "Cualquiera"):
-		min_speed = 30.0
-		speed_range = 30.0
-		acceleration = 20.0
-		is_the_fish = false
-		fish_length = $Sprite.texture.get_size().x
-		# FIXME It is necessary to adjust the collision shape size
-		# FIXME It is necessary to change the sprite to the type of fish
-		# FIXME Here we distinguish the different types of fishes on an if/else
+	
+	match fish_type:
+		"Cualquiera":
+			min_speed = 30.0
+			speed_range = 30.0
+			acceleration = 20.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x
+			# FIXME It is necessary to adjust the collision shape size
+			# FIXME It is necessary to change the sprite to the type of fish
+			# FIXME Here we distinguish the different types of fishes on an if/else
+##		"SwordFish":
+##			#this doesn't seem to work...
+##			fish= load("res://assets/scenes/prefabs/characters/FishSword.tscn")
+##			self=fish.instance()
+
+#	if (fish_type == "Cualquiera"):
+#		min_speed = 30.0
+#		speed_range = 30.0
+#		acceleration = 20.0
+#		is_the_fish = false
+#		fish_length = $Sprite.texture.get_size().x
+#		# FIXME It is necessary to adjust the collision shape size
+#		# FIXME It is necessary to change the sprite to the type of fish
+#		# FIXME Here we distinguish the different types of fishes on an if/else
 	setspeed()
 	setdirection()
 	pass
@@ -62,11 +79,11 @@ func _process(delta):
 	self.position += (speed+sin(time)*acceleration)*direction*delta 
 	
 	# Make fishes come back to the screen
-	if (self.position.x <= -fish_length):
+	if (self.position.x <= -(fish_length+OS.get_window_size().x/2)):
 		# direction = Vector2(1.0, 0.0)
 		# $Sprite.set_flip_h(true)
 		switch_direction()
-	elif (self.position.x >= OS.get_window_size().x+fish_length): 
+	elif (self.position.x >= OS.get_window_size().x/2+fish_length): 
 		switch_direction()
 		# $Sprite.set_flip_h(false)
 		#direction = Vector2(-1.0, 0.0)
