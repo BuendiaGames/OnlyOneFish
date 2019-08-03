@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pezvela__0001_Layer-8.png-226235fcef8b6c5d303eb025970858fd.stex"
+path="res://.import/fondoa_2.png-3566f39ecdb55582cd255cf3d1ca1af5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/media/graphics/pezvela/pezvela__0001_Layer-8.png"
-dest_files=[ "res://.import/pezvela__0001_Layer-8.png-226235fcef8b6c5d303eb025970858fd.stex" ]
+source_file="res://assets/media/graphics/underwater/fondoa_2.png"
+dest_files=[ "res://.import/fondoa_2.png-3566f39ecdb55582cd255cf3d1ca1af5.stex" ]
 
 [params]
 

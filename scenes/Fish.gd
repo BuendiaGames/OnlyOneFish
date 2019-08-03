@@ -46,7 +46,7 @@ func init(fish_type):
 			min_speed = 30.0
 			speed_range = 30.0
 			acceleration = 20.0
-			is_the_fish = false
+			is_the_fish = true
 			fish_length = $Sprite.texture.get_size().x / cols
 			# FIXME It is necessary to adjust the collision shape size
 			# FIXME It is necessary to change the sprite to the type of fish

@@ -8,7 +8,7 @@ radius = 9.83369
 
 [sub_resource type="Animation" id=2]
 resource_name = "swimming"
-length = 1.6
+length = 1.8
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -17,10 +17,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 8, 7, 5, 4, 3, 2, 1, 0 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
 [node name="FishSword" instance=ExtResource( 1 )]
@@ -33,7 +33,7 @@ texture = ExtResource( 2 )
 flip_h = true
 vframes = 2
 hframes = 6
-frame = 8
+frame = 6
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 43.61, 5.26 )
