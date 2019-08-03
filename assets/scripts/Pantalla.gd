@@ -12,24 +12,57 @@ export var fish_scenes={"Cualquiera":preload("res://scenes/Fish.tscn"),
 	"FlyerFish":preload("res://assets/scenes/prefabs/characters/FishFlyer.tscn"),
 	"SwordFish":preload("res://assets/scenes/prefabs/characters/FishSword.tscn"), 
 	"Abysal":preload("res://assets/scenes/prefabs/characters/FishAbysal.tscn"),
-	"JellyFish":preload("res://assets/scenes/prefabs/characters/FishJelly.tscn")}
+	"JellyFish":preload("res://assets/scenes/prefabs/characters/FishJelly.tscn"),
+	"Mermaid":preload("res://assets/scenes/prefabs/characters/FishMermaid.tscn")}
 
 var depth_index=0
 var depths=[170,1500]
 var depth_length = depths.size()
-var probabilities_vs_depth=[{"FlyerFish":0.9,"SwordFish":0.05,"Abysal":0.05},
-	{"FlyerFish":0.75,"SwordFish":0.2,"Abysal":0.05}]
+var species=["FlyerFish","SwordFish"]
+var probabilities_vs_depth=[{"FlyerFish":0.8,"SwordFish":0.05,"Abysal":0.03, "JellyFish":0.1,"Mermaid":0.02},
+	{"FlyerFish":0.6,"SwordFish":0.05,"Abysal":0.03, "JellyFish":0.1,"Mermaid":0.02},
+	{"FlyerFish":0.4,"SwordFish":0.05,"Abysal":0.1, "JellyFish":0.3,"Mermaid":0.02},
+	{"FlyerFish":0.3,"SwordFish":0.05,"Abysal":0.4, "JellyFish":0.1,"Mermaid":0.15},
+	{"FlyerFish":0.0,"SwordFish":1,"Abysal":0.0, "JellyFish":0.0,"Mermaid":0.00},]
+
+var level_range=1000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	fish_scene = preload("res://scenes/Fish.tscn")
+	recalculate_accumulative_probabilities()
 	pass
-
-func newfish_by_depth(depth):
 	
+func recalculate_accumulative_probabilities():
+	for i in range(probabilities_vs_depth.size()):
+		var total=0
+		var acu=0
+		var dict=probabilities_vs_depth[i]
 		
-	pass
+		for j in dict.values():
+			total=total+j
+			
+		for k in range(species.size()):
+			dict[species[k]]=dict[species[k]]/total+acu
+			acu=dict[species[k]]
+
+func newfish_by_depth(depth_level):
+	
+	print("Depth: "+str(depth_level))
+	
+	if depth_level>probabilities_vs_depth.size():
+		depth_level=probabilities_vs_depth.size()-1
+	
+	var dict=probabilities_vs_depth[depth_level]	
+	
+	var numrand = randf()
+	var found=false
+	for j in range(species.size()):
+			print("-> "+str(dict[species[j]]))
+			if numrand<=dict[species[j]] && !found:
+				newfish(species[j])
+				found=true
 	
 func newfish(type_fish):
 	var fish = get_fish_instance(type_fish)
@@ -55,15 +88,17 @@ func _process(delta):
 	time += delta
 	
 	if time>=3:
-		var numrand = randf()
-		if (numrand <= 0.1):
-			newfish("SwordFish")
-		elif(numrand <= 0.25):
-			newfish("JellyFish")			
-		elif(numrand <= 0.5):
-			newfish("FlyerFish")
-		elif(numrand <= 0.75):
-			newfish("Abysal")
+#		var numrand = randf()
+#		if (numrand <= 0.1):
+#			newfish("SwordFish")
+#		elif(numrand <= 0.25):
+#			newfish("JellyFish")			
+#		elif(numrand <= 0.5):
+#			newfish("FlyerFish")
+#		elif(numrand <= 0.75):
+#			newfish("Abysal")
+
+		newfish_by_depth(round($Hook.position.y/level_range))
 		
 		time=0
 		if (depth_index < depth_length and depths[depth_index] < $Hook.position.y):
