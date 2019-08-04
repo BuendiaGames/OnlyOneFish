@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://graphics/rectangulonegro.png" type="Texture" id=1]
+[ext_resource path="res://scenes/credits.gd" type="Script" id=2]
+[ext_resource path="res://graphics/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://graphics/twitter-app-icon-transparent-17.jpg.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 23
+font_data = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 113.202
+margin_top = 299.418
+margin_right = 322.202
+margin_bottom = 335.418
+custom_fonts/font = SubResource( 1 )
+text = "@BuendiaGames"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 29.0
+margin_top = 40.0
+margin_right = 606.0
+margin_bottom = 232.0
+custom_fonts/font = SubResource( 1 )
+text = "Game made by:
+- Game Development:
+ VictorSeven, Mapachana, JJramos
+- Graphics and animation:
+Pedro, Elenoide
+- Music:
+VictorSeven"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 111.151
+margin_top = 379.39
+margin_right = 468.151
+margin_bottom = 415.39
+custom_fonts/font = SubResource( 1 )
+text = "@Victor_Seven7 @Ana_B_R_A"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 358.611
+margin_top = 456.64
+margin_right = 524.611
+margin_bottom = 499.64
+text = "Try again"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 41.556
+margin_top = 290.864
+margin_right = 88.556
+margin_bottom = 337.864
+rect_pivot_offset = Vector2( 26.6462, 27.3385 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 41.556
+margin_top = 366.734
+margin_right = 88.556
+margin_bottom = 413.734
+rect_pivot_offset = Vector2( 26.6462, 27.3385 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

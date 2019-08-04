@@ -6,6 +6,7 @@ extends Node2D
 
 var depth = 0.0
 var time = 0.0
+var time_to_spawn = 2.5
 var fish_scene = null
 
 var is_at_abyss = false
@@ -98,9 +99,8 @@ func _process(delta):
 	
 	time += delta
 	
-	if time>=3:
-		depth_position = round($Hook.position.y/level_range)
-		newfish_by_depth(depth_position)
+	if time >= time_to_spawn:
+		newfish_by_depth(round($Hook.position.y/level_range))
 		
 		if (depth_position > depth_fish and not is_at_abyss):
 			$musicplayer.stop()
