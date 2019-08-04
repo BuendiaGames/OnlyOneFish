@@ -6,7 +6,7 @@ extends Node2D
 
 var depth = 0.0
 var time = 0.0
-var time_to_spawn = 2.5
+var time_to_spawn = 2
 var fish_scene = null
 
 var is_at_abyss = false
@@ -82,9 +82,9 @@ func newfish(type_fish):
 	
 	var randposition = randf()
 	if (randposition <= 0.5):
-		fish.position = Vector2(-400, $Hook.position.y+250)
+		fish.position = Vector2(-400, $Hook.position.y+400)
 	else:
-		fish.position = Vector2(400, $Hook.position.y+250)
+		fish.position = Vector2(400, $Hook.position.y+400)
 	fish.init(type_fish)
 	add_child(fish)
 	
