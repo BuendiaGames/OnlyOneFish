@@ -78,6 +78,13 @@ func init(fish_type):
 			acceleration = 20.0
 			is_the_fish = false
 			fish_length = $Sprite.texture.get_size().x / cols
+		"Octupus":
+			min_speed = 50.0
+			speed_range = 20.0
+			acceleration = 20.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
+
 
 	setspeed()
 	setdirection()
