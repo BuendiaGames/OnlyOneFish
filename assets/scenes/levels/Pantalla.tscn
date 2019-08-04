@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/scripts/Pantalla.gd" type="Script" id=1]
 [ext_resource path="res://assets/scenes/prefabs/objects/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Hook.tscn" type="PackedScene" id=3]
+[ext_resource path="res://music/pesca.ogg" type="AudioStream" id=4]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -11,9 +12,14 @@ script = ExtResource( 1 )
 n_niveles = 30
 
 [node name="Hook" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 
 [node name="Camera2D" type="Camera2D" parent="Hook"]
 position = Vector2( -2.51752, 134.958 )
 current = true
 smoothing_enabled = true
 drag_margin_bottom = 0.5
+
+[node name="musicplayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true

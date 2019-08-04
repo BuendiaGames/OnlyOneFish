@@ -8,6 +8,10 @@ var depth = 0.0
 var time = 0.0
 var fish_scene = null
 
+var is_at_abyss = false
+var depth_position = 0
+const depth_fish = 4
+
 export var fish_scenes={"Cualquiera":preload("res://scenes/Fish.tscn"),
 	"FlyerFish":preload("res://assets/scenes/prefabs/characters/FishFlyer.tscn"),
 	"SwordFish":preload("res://assets/scenes/prefabs/characters/FishSword.tscn"), 
@@ -23,7 +27,7 @@ var probabilities_vs_depth=[{"FlyerFish":0.8,"SwordFish":0.05,"Abysal":0.03, "Je
 	{"FlyerFish":0.6,"SwordFish":0.05,"Abysal":0.03, "JellyFish":0.1,"Mermaid":0.02},
 	{"FlyerFish":0.4,"SwordFish":0.05,"Abysal":0.1, "JellyFish":0.3,"Mermaid":0.02},
 	{"FlyerFish":0.3,"SwordFish":0.05,"Abysal":0.4, "JellyFish":0.1,"Mermaid":0.15},
-	{"FlyerFish":0.0,"SwordFish":1,"Abysal":0.0, "JellyFish":0.0,"Mermaid":0.00},]
+	{"FlyerFish":0.0,"SwordFish":1.0,"Abysal":0.0, "JellyFish":0.0,"Mermaid":0.00},]
 
 var level_range=1000
 
@@ -51,10 +55,10 @@ func newfish_by_depth(depth_level):
 	
 	#print("Depth: "+str(depth_level))
 	
-	if depth_level>probabilities_vs_depth.size():
+	if depth_level>=probabilities_vs_depth.size():
 		depth_level=probabilities_vs_depth.size()-1
 	
-	var dict=probabilities_vs_depth[depth_level]	
+	var dict=probabilities_vs_depth[depth_level]
 	
 	var numrand = randf()
 	var found=false
@@ -66,6 +70,11 @@ func newfish_by_depth(depth_level):
 	
 func newfish(type_fish):
 	var fish = get_fish_instance(type_fish)
+	
+	if (type_fish=="SwordFish"):
+		$musicplayer.stop()
+		$musicplayer.stream = preload("res://music/elpez_aparece.ogg")
+		$musicplayer.play()
 	
 	var randposition = randf()
 	if (randposition <= 0.5):
@@ -88,21 +97,17 @@ func _process(delta):
 	time += delta
 	
 	if time>=3:
-#		var numrand = randf()
-#		if (numrand <= 0.1):
-#			newfish("SwordFish")
-#		elif(numrand <= 0.25):
-#			newfish("JellyFish")			
-#		elif(numrand <= 0.5):
-#			newfish("FlyerFish")
-#		elif(numrand <= 0.75):
-#			newfish("Abysal")
-
-		newfish_by_depth(round($Hook.position.y/level_range))
+		depth_position = round($Hook.position.y/level_range)
+		newfish_by_depth(depth_position)
 		
-		time=0
+		if (depth_position > depth_fish and not is_at_abyss):
+			$musicplayer.stop()
+			$musicplayer.stream = preload("res://music/abisal.ogg")
+			$musicplayer.play()
+			is_at_abyss = true
+		
+		time=0.0
 		if (depth_index < depth_length and depths[depth_index] < $Hook.position.y):
-		#	print("--------> siguiente nivel ")
 			depth_index = depth_index+1
-			
+			print(depth_index)
 		#print($Hook.position.y)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pesca.ogg-a9988a328772e9a4cdec0cfeea38007b.oggstr"
+
+[deps]
+
+source_file="res://music/pesca.ogg"
+dest_files=[ "res://.import/pesca.ogg-a9988a328772e9a4cdec0cfeea38007b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0.461

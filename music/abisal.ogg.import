@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/abisal.ogg-f0ba9426457deac86bc83a0796a842de.oggstr"
+
+[deps]
+
+source_file="res://music/abisal.ogg"
+dest_files=[ "res://.import/abisal.ogg-f0ba9426457deac86bc83a0796a842de.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
