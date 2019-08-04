@@ -48,13 +48,36 @@ func init(fish_type):
 			acceleration = 20.0
 			is_the_fish = true
 			fish_length = $Sprite.texture.get_size().x / cols
-			# FIXME It is necessary to adjust the collision shape size
-			# FIXME It is necessary to change the sprite to the type of fish
-			# FIXME Here we distinguish the different types of fishes on an if/else
-##		"SwordFish":
-##			#this doesn't seem to work...
-##			fish= load("res://assets/scenes/prefabs/characters/FishSword.tscn")
-##			self=fish.instance()
+		"FlyerFish":
+			min_speed = 40.0
+			speed_range = 40.0
+			acceleration = 20.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
+		"SwordFish":
+			min_speed = 30.0
+			speed_range = 30.0
+			acceleration = 20.0
+			is_the_fish = true
+			fish_length = $Sprite.texture.get_size().x / cols
+		"Abysal":
+			min_speed = 40.0
+			speed_range = 30.0
+			acceleration = 20.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
+		"JellyFish":
+			min_speed = 30.0
+			speed_range = 50.0
+			acceleration = 30.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
+		"Mermaid":
+			min_speed = 40.0
+			speed_range = 30.0
+			acceleration = 20.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
 
 	setspeed()
 	setdirection()
