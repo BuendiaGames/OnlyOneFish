@@ -12,8 +12,6 @@ export var is_the_fish = false
 export var acceleration = 30.0
 var fish_length=100
 
-onready var fish= load("res://assets/scenes/prefabs/characters/FishSword.tscn")
-
 # Sets speed of the fish
 func setspeed():
 	var randomnumber = randf()
@@ -55,8 +53,8 @@ func init(fish_type):
 			is_the_fish = false
 			fish_length = $Sprite.texture.get_size().x / cols
 		"SwordFish":
-			min_speed = 30.0
-			speed_range = 30.0
+			min_speed = 15.0
+			speed_range = 20.0
 			acceleration = 20.0
 			is_the_fish = true
 			fish_length = $Sprite.texture.get_size().x / cols
@@ -78,6 +76,13 @@ func init(fish_type):
 			acceleration = 20.0
 			is_the_fish = false
 			fish_length = $Sprite.texture.get_size().x / cols
+		"Octupus":
+			min_speed = 50.0
+			speed_range = 20.0
+			acceleration = 20.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
+
 
 	setspeed()
 	setdirection()
@@ -111,6 +116,7 @@ func caught(pos):
 		fished = true
 		var animation=$AnimationPlayer
 		if animation!=null:
+			print("hey")
 			animation.play("bite")
 			
 	speed = 50.0

@@ -46,10 +46,10 @@ custom_fonts/font = SubResource( 1 )
 text = "@Victor_Seven7 @Ana_B_R_A"
 
 [node name="Button" type="Button" parent="."]
-margin_left = 358.611
-margin_top = 456.64
-margin_right = 524.611
-margin_bottom = 499.64
+margin_left = 356.56
+margin_top = 454.589
+margin_right = 522.56
+margin_bottom = 497.589
 text = "Try again"
 
 [node name="TextureRect" type="TextureRect" parent="."]

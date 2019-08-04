@@ -1,4 +1,8 @@
-[gd_scene load_steps=8 format=2]
+<<<<<<< HEAD
+[gd_scene load_steps=7 format=2]
+=======
+[gd_scene load_steps=6 format=2]
+>>>>>>> c8617eee6a52e13ba98bbf4588c4d4dc098118a3
 
 [ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/media/graphics/pezvela/pezvela_spritesheet.png" type="Texture" id=2]
@@ -6,6 +10,7 @@
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
+<<<<<<< HEAD
 uniform float tex0 = 140.0;
 uniform float texf = 530.0;
 
@@ -50,9 +55,11 @@ shader_param/texf = 530.0
 shader_param/space = 60.0
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 14.5205
+radius = 15.9253
 
 [sub_resource type="Animation" id=4]
+=======
+[sub_resource type="Animation" id=2]
 resource_name = "bite"
 length = 0.3
 tracks/0/type = "value"
@@ -68,8 +75,8 @@ tracks/0/keys = {
 "values": [ 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "swimming"
+[sub_resource type="Animation" id=3]
+>>>>>>> c8617eee6a52e13ba98bbf4588c4d4dc098118a3
 length = 1.8
 loop = true
 tracks/0/type = "value"
@@ -97,20 +104,20 @@ texture = ExtResource( 2 )
 flip_h = true
 vframes = 2
 hframes = 6
-frame = 8
+frame = 11
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 92.4001, 4.72 )
 shape = SubResource( 3 )
 
 [node name="VisibilityNotifier2D" parent="." index="2"]
-position = Vector2( -44.2488, -4.62814 )
-scale = Vector2( 85.6265, 4.82214 )
+position = Vector2( 0.451649, -4.62814 )
+scale = Vector2( 27.7302, 4.82214 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 autoplay = "swimming"
-anims/bite = SubResource( 4 )
-anims/swimming = SubResource( 5 )
+<<<<<<< HEAD
+anims/swimming = SubResource( 4 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." index="4"]
 position = Vector2( 9.77672, 1.39668 )
@@ -123,3 +130,7 @@ angular_velocity = 20.0
 angle_random = 1.0
 scale_amount = 2.0
 color = Color( 1, 0.992157, 0.768627, 1 )
+=======
+anims/bite = SubResource( 2 )
+anims/swimming = SubResource( 3 )
+>>>>>>> c8617eee6a52e13ba98bbf4588c4d4dc098118a3

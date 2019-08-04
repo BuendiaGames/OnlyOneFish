@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://graphics/pantalla_inicio.jpg" type="Texture" id=1]
 [ext_resource path="res://scenes/MainTitle.gd" type="Script" id=2]
 [ext_resource path="res://graphics/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://music/elpez_aparece.ogg" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 resource_name = "Comfortaa"
@@ -28,7 +29,7 @@ margin_top = 158.315
 margin_right = 538.075
 margin_bottom = 172.315
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Press only on e. Catch the dreamed fish!"
+text = "Press only on \"e\". Catch the dreamed fish!"
 align = 1
 
 [node name="Label2" type="Label" parent="."]
@@ -42,4 +43,8 @@ text = "The only man and the sea"
 align = 1
 valign = 1
 uppercase = true
+
+[node name="musicplayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
