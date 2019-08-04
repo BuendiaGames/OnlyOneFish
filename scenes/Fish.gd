@@ -12,8 +12,6 @@ export var is_the_fish = false
 export var acceleration = 30.0
 var fish_length=100
 
-onready var fish= load("res://assets/scenes/prefabs/characters/FishSword.tscn")
-
 # Sets speed of the fish
 func setspeed():
 	var randomnumber = randf()
@@ -48,13 +46,43 @@ func init(fish_type):
 			acceleration = 20.0
 			is_the_fish = true
 			fish_length = $Sprite.texture.get_size().x / cols
-			# FIXME It is necessary to adjust the collision shape size
-			# FIXME It is necessary to change the sprite to the type of fish
-			# FIXME Here we distinguish the different types of fishes on an if/else
-##		"SwordFish":
-##			#this doesn't seem to work...
-##			fish= load("res://assets/scenes/prefabs/characters/FishSword.tscn")
-##			self=fish.instance()
+		"FlyerFish":
+			min_speed = 40.0
+			speed_range = 40.0
+			acceleration = 20.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
+		"SwordFish":
+			min_speed = 15.0
+			speed_range = 20.0
+			acceleration = 20.0
+			is_the_fish = true
+			fish_length = $Sprite.texture.get_size().x / cols
+		"Abysal":
+			min_speed = 40.0
+			speed_range = 30.0
+			acceleration = 20.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
+		"JellyFish":
+			min_speed = 30.0
+			speed_range = 50.0
+			acceleration = 30.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
+		"Mermaid":
+			min_speed = 40.0
+			speed_range = 30.0
+			acceleration = 20.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
+		"Octupus":
+			min_speed = 50.0
+			speed_range = 20.0
+			acceleration = 20.0
+			is_the_fish = false
+			fish_length = $Sprite.texture.get_size().x / cols
+
 
 	setspeed()
 	setdirection()
@@ -86,6 +114,11 @@ func caught(pos):
 		else:
 			self.rotate(-PI/2)
 		fished = true
+		var animation=$AnimationPlayer
+		if animation!=null:
+			print("hey")
+			animation.play("bite")
+			
 	speed = 50.0
 	acceleration = 0.0
 	direction = Vector2(0.0, -1.0)

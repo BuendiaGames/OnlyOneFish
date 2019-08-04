@@ -21,6 +21,7 @@ custom_fonts/font = SubResource( 1 )
 text = "You won!"
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 margin_left = 36.6254
 margin_top = 173.463
 margin_right = 506.625
@@ -37,5 +38,5 @@ margin_left = 358.611
 margin_top = 456.64
 margin_right = 524.611
 margin_bottom = 499.64
-text = "Try again"
+text = "Continue"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/media/graphics/abysal/pezabisal_spritesheet.png" type="Texture" id=2]
@@ -7,7 +7,22 @@
 radius = 16.4984
 
 [sub_resource type="Animation" id=2]
-resource_name = "swimming"
+resource_name = "bite"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -28,8 +43,9 @@ tracks/0/keys = {
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
 flip_h = true
+vframes = 2
 hframes = 4
-frame = 1
+frame = 6
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 14.58, -2 )
@@ -37,4 +53,5 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 autoplay = "swimming"
-anims/swimming = SubResource( 2 )
+anims/bite = SubResource( 2 )
+anims/swimming = SubResource( 3 )

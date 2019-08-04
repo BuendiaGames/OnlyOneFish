@@ -1,0 +1,136 @@
+<<<<<<< HEAD
+[gd_scene load_steps=7 format=2]
+=======
+[gd_scene load_steps=6 format=2]
+>>>>>>> c8617eee6a52e13ba98bbf4588c4d4dc098118a3
+
+[ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/media/graphics/pezvela/pezvela_spritesheet.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+<<<<<<< HEAD
+uniform float tex0 = 140.0;
+uniform float texf = 530.0;
+
+uniform float space = 60.0;
+
+void fragment(){
+	
+	//Start of the line
+	float start = tex0 + 400.0*sin(TIME)*sin(TIME);
+	//Position of the rectangle
+	vec2 position = vec2(start,start+space);
+	
+	//Coordinates of the fragment
+	float x = FRAGCOORD.x;
+	float y = FRAGCOORD.y;
+	
+	//Get a rectangle of the color
+	vec4 color;
+	if (x > position.x && x < position.y)
+	{
+		float maximo = 0.5*(position.x+position.y);
+		color = vec4(0.8, 0.8, 0.5, -0.0005*(x-position.x)*(x-position.y));
+	}
+	else
+	{
+		color = vec4(0.0, 0.0, 0.0, 0.0);
+	}
+	
+	//Get the texture
+	vec4 textura = texture(TEXTURE, UV);
+	
+	//Mix texture and color
+	color = vec4(mix(textura.rgb, color.rgb, color.a), textura.a);
+	
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/tex0 = 140.0
+shader_param/texf = 530.0
+shader_param/space = 60.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 15.9253
+
+[sub_resource type="Animation" id=4]
+=======
+[sub_resource type="Animation" id=2]
+resource_name = "bite"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=3]
+>>>>>>> c8617eee6a52e13ba98bbf4588c4d4dc098118a3
+length = 1.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+
+[node name="FishSword" index="0" instance=ExtResource( 1 )]
+speed = 50.0
+speed_range = 60.0
+is_the_fish = true
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource( 2 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+flip_h = true
+vframes = 2
+hframes = 6
+frame = 11
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 92.4001, 4.72 )
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" parent="." index="2"]
+position = Vector2( 0.451649, -4.62814 )
+scale = Vector2( 27.7302, 4.82214 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+autoplay = "swimming"
+<<<<<<< HEAD
+anims/swimming = SubResource( 4 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="4"]
+position = Vector2( 9.77672, 1.39668 )
+emission_shape = 2
+emission_rect_extents = Vector2( 170, 40 )
+spread = 50.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 10.0
+angular_velocity = 20.0
+angle_random = 1.0
+scale_amount = 2.0
+color = Color( 1, 0.992157, 0.768627, 1 )
+=======
+anims/bite = SubResource( 2 )
+anims/swimming = SubResource( 3 )
+>>>>>>> c8617eee6a52e13ba98bbf4588c4d4dc098118a3

@@ -29,7 +29,8 @@ margin_top = 158.315
 margin_right = 538.075
 margin_bottom = 172.315
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "A game by: VictorSeven, Juanjo, Elenoide, Pedro and Mapachana"
+text = "Press only on \"e\". Catch the dreamed fish!"
+align = 1
 
 [node name="Label2" type="Label" parent="."]
 margin_left = 43.2131
