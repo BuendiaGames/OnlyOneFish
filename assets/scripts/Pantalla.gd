@@ -18,17 +18,18 @@ export var fish_scenes={"Cualquiera":preload("res://scenes/Fish.tscn"),
 	"SwordFish":preload("res://assets/scenes/prefabs/characters/FishSword.tscn"), 
 	"Abysal":preload("res://assets/scenes/prefabs/characters/FishAbysal.tscn"),
 	"JellyFish":preload("res://assets/scenes/prefabs/characters/FishJelly.tscn"),
-	"Mermaid":preload("res://assets/scenes/prefabs/characters/FishMermaid.tscn")}
+	"Mermaid":preload("res://assets/scenes/prefabs/characters/FishMermaid.tscn"),
+	"Octopus":preload("res://assets/scenes/prefabs/characters/FishOctopus.tscn")}
 
 var depth_index=0
 var depths=[170,1500]
 var depth_length = depths.size()
-var species=["FlyerFish","SwordFish", "Abysal", "JellyFish", "Mermaid"]
-var probabilities_vs_depth=[{"FlyerFish":0.8,"SwordFish":0.05,"Abysal":0.00, "JellyFish":0.13,"Mermaid":0.02},
-	{"FlyerFish":0.6,"SwordFish":0.05,"Abysal":0.00, "JellyFish":0.33,"Mermaid":0.02},
-	{"FlyerFish":0.4,"SwordFish":0.05,"Abysal":0.1, "JellyFish":0.3,"Mermaid":0.05},
-	{"FlyerFish":0.3,"SwordFish":0.05,"Abysal":0.4, "JellyFish":0.1,"Mermaid":0.15},
-	{"FlyerFish":0.0,"SwordFish":0.0,"Abysal":1.0, "JellyFish":0.0,"Mermaid":0.00},]
+var species=["FlyerFish","SwordFish", "Abysal", "JellyFish", "Mermaid", "Octopus"]
+var probabilities_vs_depth=[{"FlyerFish":0.8,"SwordFish":0.05,"Abysal":0.00, "JellyFish":0.13,"Mermaid":0.02, "Octopus":0.05},
+	{"FlyerFish":0.6,"SwordFish":0.05,"Abysal":0.00, "JellyFish":0.33,"Mermaid":0.02, "Octopus":0.05},
+	{"FlyerFish":0.4,"SwordFish":0.05,"Abysal":0.05, "JellyFish":0.3,"Mermaid":0.05, "Octopus":0.05},
+	{"FlyerFish":0.3,"SwordFish":0.05,"Abysal":0.3, "JellyFish":0.1,"Mermaid":0.15, "Octopus":0.1},
+	{"FlyerFish":0.0,"SwordFish":0.0,"Abysal":0.85, "JellyFish":0.0,"Mermaid":0.00, "Octopus":0.15},]
 
 var level_range=1000
 
