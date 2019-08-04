@@ -8,9 +8,10 @@ var depth = 0.0
 var time = 0.0
 var fish_scene = null
 
-var is_at_abyss = false
 var depth_position = 0
 const depth_fish = 4
+
+var swordfish_appeared = false
 
 export var fish_scenes={"Cualquiera":preload("res://scenes/Fish.tscn"),
 	"FlyerFish":preload("res://assets/scenes/prefabs/characters/FishFlyer.tscn"),
@@ -26,7 +27,7 @@ var species=["FlyerFish","SwordFish", "Abysal", "JellyFish", "Mermaid"]
 var probabilities_vs_depth=[{"FlyerFish":0.8,"SwordFish":0.05,"Abysal":0.00, "JellyFish":0.13,"Mermaid":0.02},
 	{"FlyerFish":0.6,"SwordFish":0.05,"Abysal":0.00, "JellyFish":0.33,"Mermaid":0.02},
 	{"FlyerFish":0.4,"SwordFish":0.05,"Abysal":0.1, "JellyFish":0.3,"Mermaid":0.05},
-	{"FlyerFish":0.3,"SwordFish":0.05,"Abysal":0.4, "JellyFish":0.1,"Mermaid":0.15},
+	{"FlyerFish":0.3,"SwordFish":0.5,"Abysal":0.4, "JellyFish":0.1,"Mermaid":0.15},
 	{"FlyerFish":0.0,"SwordFish":0.0,"Abysal":1.0, "JellyFish":0.0,"Mermaid":0.00},]
 
 var level_range=1000
@@ -73,16 +74,26 @@ func newfish_by_depth(depth_level):
 func newfish(type_fish):
 	var fish = get_fish_instance(type_fish)
 	
+	#The case of sword fish is made in particular...
 	if (type_fish=="SwordFish"):
-		$musicplayer.stop()
-		$musicplayer.stream = preload("res://music/elpez_aparece.ogg")
-		$musicplayer.play()
+		#If it is the first time it appears, play the music
+		if (not swordfish_appeared):
+			$musicplayer.stop()
+			$musicplayer.stream = preload("res://music/elpez_aparece.ogg")
+			$musicplayer.play()
+			swordfish_appeared = true
+		#If not, the function ends here, doing nothing
+		else:
+			return
 	
+	#Generate a fish in a random position
 	var randposition = randf()
 	if (randposition <= 0.5):
 		fish.position = Vector2(-400, $Hook.position.y+250)
 	else:
 		fish.position = Vector2(400, $Hook.position.y+250)
+	
+	#Init the fish and add it
 	fish.init(type_fish)
 	add_child(fish)
 	
@@ -102,11 +113,7 @@ func _process(delta):
 		depth_position = round($Hook.position.y/level_range)
 		newfish_by_depth(depth_position)
 		
-		if (depth_position > depth_fish and not is_at_abyss):
-			$musicplayer.stop()
-			$musicplayer.stream = preload("res://music/abisal.ogg")
-			$musicplayer.play()
-			is_at_abyss = true
+		
 		
 		time=0.0
 		if (depth_index < depth_length and depths[depth_index] < $Hook.position.y):
@@ -114,3 +121,14 @@ func _process(delta):
 			depth_index = depth_index+1
 			
 		#print($Hook.position.y)
+
+#Call this function when the musicplayer stops playing a song
+func _on_musicplayer_finished():
+	#If the stream path contains "pez", then play "abisal".
+	#In this way, the "abisal" theme is played as soon as The Fish
+	#theme finishes
+	if ($musicplayer.stream.resource_path.find("pez")):
+		$musicplayer.stop()
+		$musicplayer.stream = preload("res://music/abisal.ogg")
+		$musicplayer.play()
+

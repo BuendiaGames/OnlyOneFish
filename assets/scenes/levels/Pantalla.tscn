@@ -24,3 +24,4 @@ drag_margin_bottom = 0.5
 [node name="musicplayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
+[connection signal="finished" from="musicplayer" to="." method="_on_musicplayer_finished"]

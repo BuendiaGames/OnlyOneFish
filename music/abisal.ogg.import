@@ -11,5 +11,5 @@ dest_files=[ "res://.import/abisal.ogg-f0ba9426457deac86bc83a0796a842de.oggstr" 
 
 [params]
 
-loop=false
-loop_offset=0
+loop=true
+loop_offset=0.053
