@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://graphics/rectangulonegro.png" type="Texture" id=1]
 [ext_resource path="res://scenes/credits.gd" type="Script" id=2]
 [ext_resource path="res://graphics/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://graphics/twitter-app-icon-transparent-17.jpg.png" type="Texture" id=4]
+[ext_resource path="res://graphics/instagram_logo.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 23
@@ -15,60 +16,71 @@ margin_bottom = 40.0
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 113.202
-margin_top = 299.418
-margin_right = 322.202
-margin_bottom = 335.418
-custom_fonts/font = SubResource( 1 )
-text = "@BuendiaGames"
-
 [node name="Label2" type="Label" parent="."]
 margin_left = 29.0
-margin_top = 40.0
+margin_top = 74.0
 margin_right = 606.0
-margin_bottom = 232.0
+margin_bottom = 266.0
 custom_fonts/font = SubResource( 1 )
-text = "Game made by:
-- Game Development:
- VictorSeven, Mapachana, JJramos
+text = "- Game Development:
+ VictorSeven, Mapachana, JJRamos
 - Graphics and animation:
-Pedro, Elenoide
+Elenoide
 - Music:
 VictorSeven"
 
 [node name="Label3" type="Label" parent="."]
-margin_left = 111.151
-margin_top = 379.39
-margin_right = 468.151
-margin_bottom = 415.39
+margin_left = 97.151
+margin_top = 292.39
+margin_right = 493.151
+margin_bottom = 379.39
 custom_fonts/font = SubResource( 1 )
-text = "@Victor_Seven7 @Ana_B_R_A"
+text = "@Victor_Seven7
+@Ana_B_R_A
+@BuendiaGames"
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 97.151
+margin_top = 417.39
+margin_right = 580.151
+margin_bottom = 504.39
+custom_fonts/font = SubResource( 1 )
+text = "elenoideart 
+vbuendiar 
+Ana_B_R_A"
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 245.551
+margin_top = 16.7632
+margin_right = 602.551
+margin_bottom = 52.7632
+custom_fonts/font = SubResource( 1 )
+text = "CREDITS"
 
 [node name="Button" type="Button" parent="."]
-margin_left = 356.56
-margin_top = 454.589
-margin_right = 522.56
-margin_bottom = 497.589
+margin_left = 383.692
+margin_top = 514.883
+margin_right = 549.692
+margin_bottom = 557.883
 text = "Try again"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
 margin_left = 41.556
-margin_top = 290.864
+margin_top = 309.734
 margin_right = 88.556
-margin_bottom = 337.864
+margin_bottom = 356.734
 rect_pivot_offset = Vector2( 26.6462, 27.3385 )
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect3" type="TextureRect" parent="."]
 margin_left = 41.556
-margin_top = 366.734
+margin_top = 437.734
 margin_right = 88.556
-margin_bottom = 413.734
+margin_bottom = 484.734
 rect_pivot_offset = Vector2( 26.6462, 27.3385 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
