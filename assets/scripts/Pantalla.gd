@@ -51,8 +51,8 @@ func newfish_by_depth(depth_level):
 	
 	#print("Depth: "+str(depth_level))
 	
-	if depth_level>probabilities_vs_depth.size():
-		depth_level=probabilities_vs_depth.size()-1
+	if (depth_level >= probabilities_vs_depth.size()):
+		depth_level = probabilities_vs_depth.size()-1
 	
 	var dict=probabilities_vs_depth[depth_level]	
 	
@@ -102,7 +102,7 @@ func _process(delta):
 		
 		time=0
 		if (depth_index < depth_length and depths[depth_index] < $Hook.position.y):
-		#	print("--------> siguiente nivel ")
+			#print("--------> siguiente nivel ")
 			depth_index = depth_index+1
 			
 		#print($Hook.position.y)
