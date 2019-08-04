@@ -116,7 +116,6 @@ func caught(pos):
 		fished = true
 		var animation=$AnimationPlayer
 		if animation!=null:
-			print("hey")
 			animation.play("bite")
 			
 	speed = 50.0
