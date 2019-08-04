@@ -86,6 +86,10 @@ func caught(pos):
 		else:
 			self.rotate(-PI/2)
 		fished = true
+		var animation=$AnimationPlayer
+		if animation!=null:
+			animation.play("bite")
+			
 	speed = 50.0
 	acceleration = 0.0
 	direction = Vector2(0.0, -1.0)
