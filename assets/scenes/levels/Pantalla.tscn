@@ -13,7 +13,7 @@ position = Vector2( 0, 30.63 )
 n_niveles = 30
 
 [node name="Hook" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
+position = Vector2( 2.70752, -0.902496 )
 
 [node name="Camera2D" type="Camera2D" parent="Hook"]
 position = Vector2( -2.51752, 134.958 )
