@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/tap_simulate.gd" type="Script" id=1]
+[ext_resource path="res://graphics/rectangulonegro.png" type="Texture" id=2]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="touch" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 2 )
+[connection signal="pressed" from="touch" to="." method="_on_touch_pressed"]
