@@ -16,7 +16,7 @@ n_niveles = 30
 position = Vector2( 2.70752, -0.902496 )
 
 [node name="Camera2D" type="Camera2D" parent="Hook"]
-position = Vector2( -2.51752, 134.958 )
+position = Vector2( -2.51752, 165.958 )
 current = true
 smoothing_enabled = true
 drag_margin_bottom = 0.5
