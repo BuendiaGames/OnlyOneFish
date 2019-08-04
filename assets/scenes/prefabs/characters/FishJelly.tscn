@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/media/graphics/jellyfish/medusa_spritesheet.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 5.67958
+radius = 10.0108
 
 [sub_resource type="Animation" id=2]
 resource_name = "swimming"
@@ -31,7 +31,7 @@ hframes = 4
 frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 28.61, 0 )
+position = Vector2( 26.7543, -0.231964 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
