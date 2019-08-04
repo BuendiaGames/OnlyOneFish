@@ -50,7 +50,5 @@ func _on_Hook_area_entered(area):
 	$AnimationPlayer.play("FadeOUt")
 	
 	if (pez.is_this_fish_the_fish()):
-		if (win):
-			print("true")
 		win = true
 	pass # Replace with function body.
