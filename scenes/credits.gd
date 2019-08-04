@@ -18,5 +18,5 @@ func _ready():
 
 
 func _on_Button_pressed():
-	ScManager.goto_scene("res://scenes/credits.tscn")
+	ScManager.goto_scene("res://assets/scenes/levels/Pantalla.tscn")
 	pass # Replace with function body.
