@@ -1,22 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/loseScene.gd" type="Script" id=1]
-[ext_resource path="res://graphics/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://graphics/pantalla_lose.jpg" type="Texture" id=1]
+[ext_resource path="res://scenes/loseScene.gd" type="Script" id=2]
+[ext_resource path="res://graphics/font/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 31
-font_data = ExtResource( 2 )
+size = 50
+font_data = ExtResource( 3 )
 
 [node name="TextureRect" type="TextureRect"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 385.058
-margin_top = 57.3999
-margin_right = 462.058
-margin_bottom = 76.3999
+margin_left = 54.7963
+margin_top = 68.4496
+margin_right = 201.796
+margin_bottom = 104.45
 custom_fonts/font = SubResource( 1 )
 text = "You lose!"
 
@@ -34,9 +36,9 @@ Mapachana;,Juanjo
 - Music: VictorSeven"
 
 [node name="Button" type="Button" parent="."]
-margin_left = 358.611
-margin_top = 456.64
-margin_right = 524.611
-margin_bottom = 499.64
+margin_left = 391.76
+margin_top = 79.7242
+margin_right = 557.76
+margin_bottom = 122.724
 text = "Continue"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

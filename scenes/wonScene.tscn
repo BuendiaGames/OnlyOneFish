@@ -16,10 +16,10 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 191.204
-margin_top = 34.1375
-margin_right = 426.204
-margin_bottom = 91.1375
+margin_left = 49.4384
+margin_top = 31.2736
+margin_right = 284.438
+margin_bottom = 88.2736
 custom_fonts/font = SubResource( 1 )
 text = "You won!"
 
@@ -37,10 +37,10 @@ Mapachana;,Juanjo
 - Music: VictorSeven"
 
 [node name="Button" type="Button" parent="."]
-margin_left = 415.475
-margin_top = 536.766
-margin_right = 581.475
-margin_bottom = 579.766
+margin_left = 395.427
+margin_top = 41.3025
+margin_right = 561.427
+margin_bottom = 84.3025
 text = "Continue"
 
 [node name="musicplayer" type="AudioStreamPlayer" parent="."]
