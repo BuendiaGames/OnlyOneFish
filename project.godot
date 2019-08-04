@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="GMTK2019"
 run/main_scene="res://scenes/MainTitle.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/media/graphics/icons/icono48x.png"
 
 [autoload]
 

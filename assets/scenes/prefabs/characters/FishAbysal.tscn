@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[node name="FishAbysal" index="0" instance=ExtResource( 1 )]
+[node name="FishAbysal" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
