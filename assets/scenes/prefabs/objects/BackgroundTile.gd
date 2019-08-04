@@ -22,3 +22,4 @@ func create_modulation_color_for_depth(depth_, max_depth):
 	
 func set_depth(depth_, max_depth):
 	$background_mockup.modulate=create_modulation_color_for_depth(depth_, max_depth)
+	$AnimationPlayer.seek($AnimationPlayer.current_animation_position+randf())
